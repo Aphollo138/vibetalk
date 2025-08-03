@@ -26,11 +26,10 @@ export default function ChatScreen({ user, onLogout }) {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  useEffect(() => {
-    // Conectar ao  useEffect(() => {
-    const socketUrl = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000';
-    const newSocket = io(socketUrl);
-    setSocket(newSocket);
+useEffect(() => {
+  const socketUrl = import.meta.env.VITE_SOCKET_URL || 'https://vibetalk-server.onrender.com';
+  const newSocket = io(socketUrl);
+  setSocket(newSocket);
 
     // Registrar usuário
     newSocket.emit('user_join', {
